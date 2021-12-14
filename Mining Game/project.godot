@@ -14,9 +14,19 @@ config/name="FYP Mining Game"
 run/main_scene="res://scenes/MainScene.tscn"
 config/icon="res://assets/images/icon.png"
 
+[autoload]
+
+SceneChanger="*res://scenes/SceneChanger.tscn"
+
 [global]
 
 environment=false
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Door"
 
 [physics]
 
