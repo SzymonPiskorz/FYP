@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var max_speed = 50.0
-export var acceleration = 100.0
+export var max_speed = 300.0
+export var acceleration = 500.0
 export var friction = 0.97
 export var gravity = 9.8
-export var jump_speed = 300.0
+export var jump_speed = 400.0
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):

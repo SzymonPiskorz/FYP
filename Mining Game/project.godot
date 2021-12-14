@@ -14,10 +14,15 @@ config/name="FYP Mining Game"
 run/main_scene="res://scenes/MainScene.tscn"
 config/icon="res://assets/images/icon.png"
 
+[global]
+
+environment=false
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.603922, 0.396078, 0.243137, 1 )
 environment/default_environment="res://default_env.tres"
