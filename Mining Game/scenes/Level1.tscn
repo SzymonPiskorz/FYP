@@ -38,7 +38,7 @@ path = "res://scenes/MainScene.tscn"
 
 [node name="Door2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -967, 2778 )
-path = "res://scenes/Level1.tscn"
+path = "res://scenes/Level2.tscn"
 
 [node name="BasicEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( -902, 127 )
