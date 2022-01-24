@@ -44,12 +44,13 @@ func _physics_process(delta):
 func _jump():
 	velocity.y -= jump_speed
 
-func _damageNormalE(t_damage):
+func _damageE(t_damage):
 	normalE_health -= t_damage
 	if normalE_health <= 0:
 		normalE_died = true
+		queue_free()
 
-func _healNormalE(t_health):
+func _heal(t_health):
 	normalE_health += t_health
 	if normalE_health > normalE_max_health:
 		normalE_health = normalE_max_health

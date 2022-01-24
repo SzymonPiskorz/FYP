@@ -36,7 +36,13 @@ func _physics_process(delta):
 		randomNum = rng.randi_range(0, 1)
 		time = 0
 
-func _damageBasicE(t_damage):
+func _damageE(t_damage):
 	basicE_health -= t_damage
 	if basicE_health <= 0:
 		basicE_died = true
+		queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		body._damagePlayer(basicE_damage)
