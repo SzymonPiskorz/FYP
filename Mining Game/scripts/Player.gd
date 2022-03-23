@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal health_changed(value)
+signal tokens_changed(value)
+
 export var max_speed = 300.0
 export var acceleration = 500.0
 export var friction = 0.97
@@ -7,10 +10,10 @@ export var gravity = 9.8
 export var jump_speed = 400.0
 var velocity = Vector2.ZERO
 
-export var player_health = 10.0
-export var player_max_health = 10.0
+var player_health : = 100 setget change_health
+var player_max_health : int = 100
 export var player_died = false
-export var player_damage = 1.0
+export var player_damage = 1
 var currently_equiped = 2
 var current_tokens = 0
 
@@ -19,6 +22,7 @@ var oRD = -45
 
 func _ready():
 	_equip(currently_equiped)
+	_addTokens(Data.current_tokens)
 
 func _physics_process(delta):
 	velocity.y += gravity
@@ -50,24 +54,26 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y -= jump_speed
 	
+	if velocity.x > 0:
+		scale.x = 1
+	elif velocity.x < 0:
+		scale.x = -1
+	else:
+		scale.x = 1
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-func _setHealth(t_health):
-	player_health = t_health
+func change_health(value : int) -> void:
+	player_health += value
+	
 	if player_health > player_max_health:
 		player_health = player_max_health
-
-func _heal(t_health):
-	player_health += t_health
-	if player_health > player_max_health:
-		player_health = player_max_health
-
-func _damagePlayer(t_damage):
-	player_health -= t_damage
-	Interface._update_ui(player_health)
+	
 	if player_health <= 0:
 		player_died = true
 		queue_free()
+	
+	emit_signal("health_changed", player_health)
 
 func _attack(inv):
 	var equipped = self.get_child(inv)
@@ -93,4 +99,4 @@ func _equip(inv):
 
 func _addTokens(amount):
 	current_tokens += amount
-	Interface._update_ui(current_tokens)
+	emit_signal("tokens_changed", current_tokens)

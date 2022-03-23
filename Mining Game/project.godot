@@ -11,14 +11,14 @@ config_version=4
 [application]
 
 config/name="FYP Mining Game"
-run/main_scene="res://scenes/MainScene.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://assets/images/icon.png"
 
 [autoload]
 
 SceneChanger="*res://scenes/SceneChanger.tscn"
 Token="*res://scripts/Token.gd"
-Interface="*res://scripts/Interface.gd"
+Data="*res://scripts/data.gd"
 
 [global]
 

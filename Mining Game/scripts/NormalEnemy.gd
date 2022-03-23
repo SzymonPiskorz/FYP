@@ -7,22 +7,17 @@ export var jump_speed = 250.0
 var velocity = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
 var randomNum = 0
-var direction = 0
+var direction = -1
 const TIME_PERIOD = 0.01
 var time = 0
 
-export var normalE_health = 8
-export var normalE_max_health = 8
-export var normalE_damage = 3
+export var normalE_health = 15
+export var normalE_max_health = 15
+export var normalE_damage = 10
 export var normalE_died = false
 
 func _physics_process(delta):
 	velocity.y += gravity
-	
-	if randomNum == 0:
-		direction += 1.0
-	else:
-		direction -= 1.0
 	
 	velocity.x += direction * acceleration * delta
 	
@@ -37,12 +32,16 @@ func _physics_process(delta):
 	time += delta
 	
 	if time > TIME_PERIOD:
-		rng.randomize()
-		randomNum = rng.randi_range(0, 1)
+		turn_around()
 		time = 0
 
 func _jump():
 	velocity.y -= jump_speed
+	
+func turn_around():
+	if is_on_floor():
+		direction *= -1
+		scale.x = -scale.x
 
 func _damageE(t_damage):
 	normalE_health -= t_damage
@@ -54,3 +53,8 @@ func _heal(t_health):
 	normalE_health += t_health
 	if normalE_health > normalE_max_health:
 		normalE_health = normalE_max_health
+
+
+func _on_AttackShape_body_entered(body):
+	if body.is_in_group("player"):
+		body.change_health(-normalE_damage)

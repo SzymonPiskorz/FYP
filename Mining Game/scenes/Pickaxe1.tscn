@@ -10,12 +10,12 @@ height = 0.0
 [node name="Pickaxe1" type="Area2D" groups=["Pick"]]
 script = ExtResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="." groups=["Pick"]]
+texture = ExtResource( 1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Pick"]]
 position = Vector2( 2, -2 )
 rotation = 0.785398
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="." groups=["Pick"]]
-texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Pickaxe_body_entered"]

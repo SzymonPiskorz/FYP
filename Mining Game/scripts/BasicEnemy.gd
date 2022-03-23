@@ -11,7 +11,7 @@ const TIME_PERIOD = 0.01
 var time = 0
 
 export var basicE_health = 3
-export var basicE_damage = 1
+export var basicE_damage = 2
 export var basicE_died = false
 
 func _physics_process(delta):
@@ -45,4 +45,4 @@ func _damageE(t_damage):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body._damagePlayer(basicE_damage)
+		body.change_health(-basicE_damage)

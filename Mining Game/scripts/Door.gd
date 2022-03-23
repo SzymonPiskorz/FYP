@@ -15,5 +15,9 @@ func _on_Door_body_exited(body):
 
 func _process(delta):
 	if inArea:
-		if Input.is_action_pressed("ui_select"):
+		if Input.is_action_just_pressed("ui_select"):
+			if path == "res://scenes/MainScene.tscn":
+				Data.add_to_overall_tokens()
+			else:
+				Data.current_tokens = get_parent().find_node("Player").current_tokens
 			SceneChanger.change_scene(path)

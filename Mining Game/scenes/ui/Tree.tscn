@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Tree.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/Red.png" type="Texture" id=3]
+[ext_resource path="res://scripts/upgradeNode.gd" type="Script" id=4]
+
+[node name="Tree" type="TextureRect"]
+self_modulate = Color( 0.466667, 0.423529, 0.423529, 1 )
+margin_right = 1022.0
+margin_bottom = 599.0
+expand = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Begining" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource( 4 )
+child_nodes = [ 1, 2, 3 ]
+
+[node name="TextureButton" type="TextureButton" parent="Begining"]
+margin_left = 468.0
+margin_top = 37.0
+margin_right = 532.0
+margin_bottom = 101.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Begining/TextureButton"]
+z_as_relative = false
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Movement" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource( 4 )
+index = 1
+nodes_needed = [ 0 ]
+
+[node name="TextureButton" type="TextureButton" parent="Movement"]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 214.0
+margin_bottom = 214.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Movement/TextureButton"]
+z_as_relative = false
+points = PoolVector2Array( 1013, -156 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Combat" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource( 4 )
+index = 2
+nodes_needed = [ 0 ]
+
+[node name="TextureButton" type="TextureButton" parent="Combat"]
+margin_left = 468.0
+margin_top = 150.0
+margin_right = 532.0
+margin_bottom = 214.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Combat/TextureButton"]
+z_as_relative = false
+points = PoolVector2Array( 1013, -156 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Utility" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource( 4 )
+index = 3
+nodes_needed = [ 0 ]
+
+[node name="TextureButton" type="TextureButton" parent="Utility"]
+margin_left = 786.0
+margin_top = 150.0
+margin_right = 850.0
+margin_bottom = 214.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Utility/TextureButton"]
+z_as_relative = false
+points = PoolVector2Array( 1013, -156 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[connection signal="pressed" from="Begining/TextureButton" to="Begining" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Movement/TextureButton" to="Movement" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Combat/TextureButton" to="Combat" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Utility/TextureButton" to="Utility" method="_on_TextureButton_pressed"]
