@@ -10,7 +10,7 @@ export var gravity = 9.8
 export var jump_speed = 400.0
 var velocity = Vector2.ZERO
 
-var player_health : = 100 setget change_health
+var player_health = 0
 var player_max_health : int = 100
 export var player_died = false
 export var player_damage = 1
@@ -23,6 +23,15 @@ var oRD = -45
 func _ready():
 	_equip(currently_equiped)
 	_addTokens(Data.current_tokens)
+	
+	if Data.player_health != 0:
+		change_health(Data.player_health)
+	else:
+		change_health(player_max_health)
+	
+	max_speed = Data.player_max_speed
+	acceleration = Data.player_acceleration
+	jump_speed = Data.player_jump_speed
 
 func _physics_process(delta):
 	velocity.y += gravity
@@ -62,6 +71,7 @@ func _physics_process(delta):
 		scale.x = 1
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
 
 func change_health(value : int) -> void:
 	player_health += value
