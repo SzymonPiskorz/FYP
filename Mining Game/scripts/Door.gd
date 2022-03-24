@@ -17,6 +17,7 @@ func _process(delta):
 	if inArea:
 		if Input.is_action_just_pressed("ui_select"):
 			if path == "res://scenes/MainScene.tscn":
+				Data.current_tokens = get_parent().find_node("Player").current_tokens
 				Data.add_to_overall_tokens()
 				Data.player_health = get_parent().find_node("Player").player_health
 			else:

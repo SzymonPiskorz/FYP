@@ -40,10 +40,10 @@ func _physics_process(delta):
 	
 	var input = 0.0
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("Right"):
 		input += 1.0
 	
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("Left"):
 		input -= 1.0
 	
 	if Input.is_action_pressed("1"):
@@ -62,7 +62,7 @@ func _physics_process(delta):
 	if abs(velocity.x) > max_speed:
 		velocity.x = max_speed * sign(velocity.x)
 	
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("Jump") and is_on_floor():
 		velocity.y -= jump_speed
 	
 	if velocity.x > 0:
