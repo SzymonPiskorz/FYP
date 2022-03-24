@@ -18,6 +18,7 @@ __meta__ = {
 z_index = 1
 script = ExtResource( 4 )
 child_nodes = [ 1, 2, 3 ]
+upgrade_info = "No current use"
 
 [node name="TextureButton" type="TextureButton" parent="Begining"]
 margin_left = 468.0
@@ -35,18 +36,36 @@ z_as_relative = false
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Begining/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Begining/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Movement" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 1
 child_nodes = [ 4.0, 8 ]
 nodes_needed = [ 0 ]
+price = 1
+upgrade_info = "Increase Speed and Jump"
 
 [node name="TextureButton" type="TextureButton" parent="Movement"]
 margin_left = 150.0
 margin_top = 150.0
 margin_right = 214.0
 margin_bottom = 214.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -59,18 +78,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Movement/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Movement/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Speed1" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 4
 child_nodes = [ 5 ]
 nodes_needed = [ 1 ]
+price = 2
+upgrade_info = "Increase Speed"
 
 [node name="TextureButton" type="TextureButton" parent="Speed1"]
 margin_left = 60.0
 margin_top = 225.0
 margin_right = 124.0
 margin_bottom = 289.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -83,18 +120,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Speed1/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Speed1/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Speed2" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 5
 child_nodes = [ 6 ]
 nodes_needed = [ 4 ]
+price = 4
+upgrade_info = "Increase Speed"
 
 [node name="TextureButton" type="TextureButton" parent="Speed2"]
 margin_left = 60.0
 margin_top = 325.0
 margin_right = 124.0
 margin_bottom = 389.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -107,18 +162,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Speed2/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Speed2/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Speed3" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 6
 child_nodes = [ 7 ]
 nodes_needed = [ 5 ]
+price = 6
+upgrade_info = "Increase Speed"
 
 [node name="TextureButton" type="TextureButton" parent="Speed3"]
 margin_left = 60.0
 margin_top = 425.0
 margin_right = 124.0
 margin_bottom = 489.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -131,17 +204,35 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Speed3/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Speed3/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Speed4" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 7
 nodes_needed = [ 6 ]
+price = 8
+upgrade_info = "Increase Speed"
 
 [node name="TextureButton" type="TextureButton" parent="Speed4"]
 margin_left = 60.0
 margin_top = 525.0
 margin_right = 124.0
 margin_bottom = 589.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -154,18 +245,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Speed4/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Speed4/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Jump1" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 8
 child_nodes = [ 9 ]
 nodes_needed = [ 1 ]
+price = 2
+upgrade_info = "Increase Jump height"
 
 [node name="TextureButton" type="TextureButton" parent="Jump1"]
 margin_left = 250.0
 margin_top = 225.0
 margin_right = 314.0
 margin_bottom = 289.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -178,18 +287,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Jump1/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Jump1/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Jump2" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 9
 child_nodes = [ 10 ]
 nodes_needed = [ 8 ]
+price = 4
+upgrade_info = "Increase Jump height"
 
 [node name="TextureButton" type="TextureButton" parent="Jump2"]
 margin_left = 250.0
 margin_top = 325.0
 margin_right = 314.0
 margin_bottom = 389.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -202,18 +329,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Jump2/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Jump2/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Jump3" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 10
 child_nodes = [ 11 ]
 nodes_needed = [ 9 ]
+price = 6
+upgrade_info = "Increase Jump height"
 
 [node name="TextureButton" type="TextureButton" parent="Jump3"]
 margin_left = 250.0
 margin_top = 425.0
 margin_right = 314.0
 margin_bottom = 489.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -226,17 +371,35 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Jump3/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Jump3/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Jump4" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 11
 nodes_needed = [ 10 ]
+price = 8
+upgrade_info = "Increase Jump height"
 
 [node name="TextureButton" type="TextureButton" parent="Jump4"]
 margin_left = 250.0
 margin_top = 525.0
 margin_right = 314.0
 margin_bottom = 589.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -249,18 +412,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Jump4/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Jump4/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Combat" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 2
 child_nodes = [ 12, 16 ]
 nodes_needed = [ 0 ]
+price = 1
+upgrade_info = "Increase Attack and Armour"
 
 [node name="TextureButton" type="TextureButton" parent="Combat"]
 margin_left = 468.0
 margin_top = 150.0
 margin_right = 532.0
 margin_bottom = 214.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -273,18 +454,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Combat/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Combat/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Attack1" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 12
 child_nodes = [ 13 ]
 nodes_needed = [ 2 ]
+price = 2
+upgrade_info = "Increase Attack DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Attack1"]
 margin_left = 375.0
 margin_top = 225.0
 margin_right = 439.0
 margin_bottom = 289.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -297,18 +496,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Attack1/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Attack1/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Attack2" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 13
 child_nodes = [ 14 ]
 nodes_needed = [ 12 ]
+price = 4
+upgrade_info = "Increase Attack DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Attack2"]
 margin_left = 375.0
 margin_top = 325.0
 margin_right = 439.0
 margin_bottom = 389.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -321,18 +538,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Attack2/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Attack2/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Attack3" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 14
 child_nodes = [ 15 ]
 nodes_needed = [ 13 ]
+price = 6
+upgrade_info = "Increase Attack DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Attack3"]
 margin_left = 375.0
 margin_top = 425.0
 margin_right = 439.0
 margin_bottom = 489.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -345,17 +580,35 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Attack3/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Attack3/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Attack4" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 15
 nodes_needed = [ 14 ]
+price = 8
+upgrade_info = "Increase Attack DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Attack4"]
 margin_left = 375.0
 margin_top = 525.0
 margin_right = 439.0
 margin_bottom = 589.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -368,18 +621,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Attack4/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Attack4/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Defense1" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 16
 child_nodes = [ 17 ]
 nodes_needed = [ 2 ]
+price = 2
+upgrade_info = "Increase Armour"
 
 [node name="TextureButton" type="TextureButton" parent="Defense1"]
 margin_left = 565.0
 margin_top = 225.0
 margin_right = 629.0
 margin_bottom = 289.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -392,18 +663,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Defense1/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Defense1/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Defense2" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 17
 child_nodes = [ 18 ]
 nodes_needed = [ 16 ]
+price = 4
+upgrade_info = "Increase Armour"
 
 [node name="TextureButton" type="TextureButton" parent="Defense2"]
 margin_left = 565.0
 margin_top = 325.0
 margin_right = 629.0
 margin_bottom = 389.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -416,18 +705,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Defense2/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Defense2/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Defense3" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 18
 child_nodes = [ 19 ]
 nodes_needed = [ 17 ]
+price = 6
+upgrade_info = "Increase Armour"
 
 [node name="TextureButton" type="TextureButton" parent="Defense3"]
 margin_left = 565.0
 margin_top = 425.0
 margin_right = 629.0
 margin_bottom = 489.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -440,17 +747,35 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Defense3/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Defense3/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Defense4" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 19
 nodes_needed = [ 18 ]
+price = 8
+upgrade_info = "Increase Armour"
 
 [node name="TextureButton" type="TextureButton" parent="Defense4"]
 margin_left = 565.0
 margin_top = 525.0
 margin_right = 629.0
 margin_bottom = 589.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -463,18 +788,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Defense4/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Defense4/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Utility" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 3
 child_nodes = [ 20 ]
 nodes_needed = [ 0 ]
+price = 1
+upgrade_info = "Increase Mining DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Utility"]
 margin_left = 786.0
 margin_top = 150.0
 margin_right = 850.0
 margin_bottom = 214.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -487,18 +830,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Utility/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Utility/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Mining1" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 20
 child_nodes = [ 21 ]
 nodes_needed = [ 3 ]
+price = 2
+upgrade_info = "Increase Mining DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Mining1"]
 margin_left = 876.0
 margin_top = 225.0
 margin_right = 940.0
 margin_bottom = 289.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -511,18 +872,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Mining1/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Mining1/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Mining2" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 21
 child_nodes = [ 22 ]
 nodes_needed = [ 20 ]
+price = 4
+upgrade_info = "Increase Mining DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Mining2"]
 margin_left = 876.0
 margin_top = 325.0
 margin_right = 940.0
 margin_bottom = 389.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -535,18 +914,36 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Mining2/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Mining2/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Mining3" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 22
 child_nodes = [ 23 ]
 nodes_needed = [ 21 ]
+price = 6
+upgrade_info = "Increase Mining DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Mining3"]
 margin_left = 876.0
 margin_top = 425.0
 margin_right = 940.0
 margin_bottom = 489.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -559,17 +956,35 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Mining3/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Mining3/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Mining4" type="Node2D" parent="."]
 z_index = 1
 script = ExtResource( 4 )
 index = 23
 nodes_needed = [ 22 ]
+price = 8
+upgrade_info = "Increase Mining DMG"
 
 [node name="TextureButton" type="TextureButton" parent="Mining4"]
 margin_left = 876.0
 margin_top = 525.0
 margin_right = 940.0
 margin_bottom = 589.0
+rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -582,27 +997,90 @@ points = PoolVector2Array( 1013, -156 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="UpgradeInfo" type="PopupDialog" parent="Mining4/TextureButton"]
+margin_right = 127.0
+margin_bottom = 89.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Mining4/TextureButton/UpgradeInfo"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 119.0
+margin_bottom = 81.0
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="Begining/TextureButton" to="Begining" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Begining/TextureButton" to="Begining" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Begining/TextureButton" to="Begining" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Movement/TextureButton" to="Movement" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Movement/TextureButton" to="Movement" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Movement/TextureButton" to="Movement" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Speed1/TextureButton" to="Speed1" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Speed1/TextureButton" to="Speed1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Speed1/TextureButton" to="Speed1" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Speed2/TextureButton" to="Speed2" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Speed2/TextureButton" to="Speed2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Speed2/TextureButton" to="Speed2" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Speed3/TextureButton" to="Speed3" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Speed3/TextureButton" to="Speed3" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Speed3/TextureButton" to="Speed3" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Speed4/TextureButton" to="Speed4" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Speed4/TextureButton" to="Speed4" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Speed4/TextureButton" to="Speed4" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Jump1/TextureButton" to="Jump1" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Jump1/TextureButton" to="Jump1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Jump1/TextureButton" to="Jump1" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Jump2/TextureButton" to="Jump2" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Jump2/TextureButton" to="Jump2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Jump2/TextureButton" to="Jump2" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Jump3/TextureButton" to="Jump3" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Jump3/TextureButton" to="Jump3" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Jump3/TextureButton" to="Jump3" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Jump4/TextureButton" to="Jump4" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Jump4/TextureButton" to="Jump4" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Jump4/TextureButton" to="Jump4" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Combat/TextureButton" to="Combat" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Combat/TextureButton" to="Combat" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Combat/TextureButton" to="Combat" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Attack1/TextureButton" to="Attack1" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Attack1/TextureButton" to="Attack1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Attack1/TextureButton" to="Attack1" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Attack2/TextureButton" to="Attack2" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Attack2/TextureButton" to="Attack2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Attack2/TextureButton" to="Attack2" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Attack3/TextureButton" to="Attack3" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Attack3/TextureButton" to="Attack3" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Attack3/TextureButton" to="Attack3" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Attack4/TextureButton" to="Attack4" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Attack4/TextureButton" to="Attack4" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Attack4/TextureButton" to="Attack4" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Defense1/TextureButton" to="Defense1" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Defense1/TextureButton" to="Defense1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Defense1/TextureButton" to="Defense1" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Defense2/TextureButton" to="Defense2" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Defense2/TextureButton" to="Defense2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Defense2/TextureButton" to="Defense2" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Defense3/TextureButton" to="Defense3" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Defense3/TextureButton" to="Defense3" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Defense3/TextureButton" to="Defense3" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Defense4/TextureButton" to="Defense4" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Defense4/TextureButton" to="Defense4" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Defense4/TextureButton" to="Defense4" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Utility/TextureButton" to="Utility" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Utility/TextureButton" to="Utility" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Utility/TextureButton" to="Utility" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Mining1/TextureButton" to="Mining1" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Mining1/TextureButton" to="Mining1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Mining1/TextureButton" to="Mining1" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Mining2/TextureButton" to="Mining2" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Mining2/TextureButton" to="Mining2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Mining2/TextureButton" to="Mining2" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Mining3/TextureButton" to="Mining3" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Mining3/TextureButton" to="Mining3" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Mining3/TextureButton" to="Mining3" method="_on_TextureButton_pressed"]
+[connection signal="mouse_entered" from="Mining4/TextureButton" to="Mining4" method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Mining4/TextureButton" to="Mining4" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="Mining4/TextureButton" to="Mining4" method="_on_TextureButton_pressed"]

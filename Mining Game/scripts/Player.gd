@@ -16,6 +16,7 @@ export var player_died = false
 export var player_damage = 1
 var currently_equiped = 2
 var current_tokens = 0
+var player_armour : int = 0
 
 var oVec = Vector2(0, -3)
 var oRD = -45
@@ -32,6 +33,7 @@ func _ready():
 	max_speed = Data.player_max_speed
 	acceleration = Data.player_acceleration
 	jump_speed = Data.player_jump_speed
+	player_armour = Data.player_armour
 
 func _physics_process(delta):
 	velocity.y += gravity
