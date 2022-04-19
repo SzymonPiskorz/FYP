@@ -19,6 +19,7 @@ config/icon="res://assets/images/icon.png"
 SceneChanger="*res://scenes/SceneChanger.tscn"
 Token="*res://scripts/Token.gd"
 Data="*res://scripts/data.gd"
+LevelData="*res://scripts/levels/level_data.gd"
 
 [global]
 
