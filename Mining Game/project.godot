@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "GQLClient",
+"language": "GDScript",
+"path": "res://addons/GodotGraphQL/src/gql_client.gd"
+}, {
+"base": "Reference",
+"class": "GQLQuery",
+"language": "GDScript",
+"path": "res://addons/GodotGraphQL/src/gql_query.gd"
+}, {
+"base": "Node",
+"class": "GQLQueryExecuter",
+"language": "GDScript",
+"path": "res://addons/GodotGraphQL/src/gql_query_executer.gd"
+} ]
+_global_script_class_icons={
+"GQLClient": "",
+"GQLQuery": "",
+"GQLQueryExecuter": ""
+}
+
 [application]
 
 config/name="FYP Mining Game"
@@ -19,6 +41,9 @@ config/icon="res://assets/images/icon.png"
 SceneChanger="*res://scenes/SceneChanger.tscn"
 Token="*res://scripts/Token.gd"
 Data="*res://scripts/data.gd"
+GraphQL="*res://addons/GodotGraphQL/src/gql_client.gd"
+EnjinApi="*res://addons/EnjinAPI/enjin_api.gd"
+Secret="*res://addons/EnjinAPI/secret.gd"
 
 [global]
 
