@@ -30,8 +30,8 @@ var params = {
 	"randomize_seed": true,
 }
 
-const WIDTH = 100
-const HEIGHT = 100
+const WIDTH = 400
+const HEIGHT = 400
 
 func _get_property_list():
 	return [
