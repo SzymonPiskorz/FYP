@@ -79,10 +79,10 @@ func generate_level():
 	else:
 		# Sets the height map noise properties.
 		simplex_map.seed = LevelData.noise_seed
-		simplex_map.octaves = LevelData.height_octaves
-		simplex_map.period = LevelData.height_period
-		simplex_map.lacunarity = LevelData.height_lacunarity
-		simplex_map.persistence = LevelData.height_persistence
+		simplex_map.octaves = LevelData.octaves
+		simplex_map.period = LevelData.period
+		simplex_map.lacunarity = LevelData.lacunarity
+		simplex_map.persistence = LevelData.persistence
 		
 	var tiles = []
 	
