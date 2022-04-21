@@ -75,7 +75,7 @@ func _get_app_secret_response(result):
 		})
 		
 		_schema.create_player_mutation.set_bearer(_bearer)
-		_schema.create_player_mutation.run({ "playerId": "Michael" })
+		_schema.create_player_mutation.run({ "playerId": "Szymon" })
 
 func _retrieve_app_access_token_response(result):
 	#var secret = result.data.EnjinApps[0].secret

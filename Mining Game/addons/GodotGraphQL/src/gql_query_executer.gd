@@ -24,7 +24,6 @@ func _ready():
 	add_child(request)
 
 func request_completed( result:int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
-	print("Request completed:", result, ",",  response_code)
 	if response_code!=200:
 		print("Query:"+query_cached)
 		print("Response:"+body.get_string_from_utf8())
@@ -39,6 +38,7 @@ func run(variables: Dictionary):
 		"query": query_cached,
 		"variables": variables,
 	}
-	print("h:", headers, "use_ssl:", use_ssl)
 	var err=request.request(endpoint, headers, false, HTTPClient.METHOD_POST, JSON.print(data_to_send))
-	print("Request to: ", endpoint, " return: ", err)
+
+func set_bearer(bearer : String) -> void:
+	headers.append("Authorization: Bearer " + bearer)
