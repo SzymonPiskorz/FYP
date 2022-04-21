@@ -10,7 +10,7 @@ var sword_dmg : int = 2
 var pickaxe_dmg : int = 1
 var player_armour : int = 0
 
-var difficulty = 0
+var difficulty = -1
 var b_enemy_per_d = 3
 var n_enemy_per_d = 2
 var mb_enemy_per_d = 1
@@ -26,7 +26,9 @@ func buy_upgrade(price):
 	overallTokens -= price
 
 func reset_difficulty():
-	difficulty = 0
+	difficulty = -1
+	print(difficulty)
 
 func up_difficulty():
 	difficulty += 1
+	print(difficulty)

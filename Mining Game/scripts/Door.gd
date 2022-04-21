@@ -20,7 +20,12 @@ func _process(delta):
 				Data.current_tokens = get_parent().find_node("Player").current_tokens
 				Data.add_to_overall_tokens()
 				Data.player_health = get_parent().find_node("Player").player_health
+				Data.reset_difficulty()
 			else:
 				Data.current_tokens = get_parent().find_node("Player").current_tokens
 				Data.player_health = get_parent().find_node("Player").player_health
+			
+			if path == "res://scenes/levels/LevelX.tscn":
+				Data.up_difficulty()
+			
 			SceneChanger.change_scene(path)
