@@ -35,6 +35,19 @@ func get_user(id : int):
 		"id": id
 	})
 
+func mint():
+	var token_id : String = "1000000000003af3"
+	_execute("mint", {
+		"identityId": "23916", "appId": "6132", "type": "MINT", "token_id": token_id, "amount": 1,
+		"address": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+	})
+
+func send():
+	var token_id : String = "1000000000003af3"
+	_execute("send", {
+		"identityId": "23916", "appId": "6132", "type": "SEND",
+	})
+
 func create_identity(user_id : int, eth_address : String):
 	_execute("create_identity", {
 		"appId": APP_ID,
