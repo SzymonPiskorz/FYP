@@ -2,16 +2,20 @@ extends Node
 
 const APP_ID : int = 6132
 
-var _root_ready = false
-var _initialised = false
-var _bearer : String = ""
-var _schema = null
-var _queued_queries = []
+var root_ready = false
+var initialised = false
 
-var _SchemaScene = preload("res://addons/EnjinAPI/schema.tscn")
+var bearer : String = ""
+var user_id = -1
+
+var schema = null
+var queued_queries = []
+var SchemaScene = preload("res://addons/EnjinAPI/schema.tscn")
+
+var eth_address : String = ""
 
 func connect_to_enjin() -> void:
-	if not _root_ready:
+	if not root_ready:
 		yield(get_tree().root, "ready")
 		
 	GraphQL.set_endpoint(true, "kovan.cloud.enjin.io/graphql", 0, "")
@@ -21,66 +25,95 @@ func login(username : String, password : String):
 	_execute("login_query", {
 		"email": username, "password":password })
 
+func logout():
+	schema.remove_bearer()
+	bearer = ""
+	user_id = -1
+
+func get_user(id : int):
+	_execute("get_user",{
+		"id": id
+	})
+
+func create_identity(user_id : int, eth_address : String):
+	_execute("create_identity", {
+		"appId": APP_ID,
+		"userId": user_id,
+		"ethAddress": eth_address,
+	})
+
+func set_ethAddress(eth_Address : String):
+	eth_address = eth_Address
+
 func _setup():
 	var root = get_tree().root
-	_schema = _SchemaScene.instance()
-	root.add_child(_schema)
+	schema = SchemaScene.instance()
+	root.add_child(schema)
 	
 	# Connects the queries and mutations' signals to methods.
-	_schema.login_query.connect("graphql_response", self, "_login_response")
-	_schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
-	_schema.retrieve_app_access_token_query.connect("graphql_response", self, "_retrieve_app_access_token_response")
-	_schema.create_player_mutation.connect("graphql_response", self, "_create_player_response")
+	schema.login_query.connect("graphql_response", self, "_login_response")
+	schema.get_user.connect("graphql_response", self, "get_user_response")
+	schema.create_identity.connect("graphql_response", self, "create_identity_response")
 	
-	_initialised = true
+	
+	schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
+	schema.retrieve_app_access_token_query.connect("graphql_response", self, "_retrieve_app_access_token_response")
+	
+	initialised = true
 	
 	# Runs any queued queries.
-	if _queued_queries.size():
-		for query in _queued_queries:
-			_schema.get(query.query_name).run(query.args)
+	if queued_queries.size():
+		for query in queued_queries:
+			schema.get(query.query_name).run(query.args)
 
 func _execute(query_name : String, args : Dictionary):
-	if _initialised:
-		_schema.get(query_name).run(args)
+	if initialised:
+		schema.get(query_name).run(args)
 		
 	else:
-		_queued_queries.append({
+		queued_queries.append({
 			query_name = query_name,
 			args = args,
 		})
 
 func _on_tree_ready():
-	_root_ready = true
+	root_ready = true
 
 func _login_response(result):
 	print(JSON.print(result, "\t"))
 	
 	var auth = result.data.EnjinOauth
-	#print(auth)
-	if auth != null:
-		_bearer = auth.accessTokens[0].accessToken
-		_schema.get_app_secret_query.set_bearer(_bearer)
-		_schema.get_app_secret_query.run({
-			"id": APP_ID,
-		})
 	
+	if auth != null:
+		user_id = auth.id
+		bearer = auth.accessTokens[0].accessToken
+		schema.set_bearer(bearer)
+
+func get_user_response(result):
+	print(JSON.print(result, "\t"))
+	
+	var auth = result.data.EnjinUser.identities
+	
+	if auth.size() > 0:
+		set_ethAddress(auth[0].wallet.ethAddress)
+
+func create_identity_response(result):
+	print(JSON.print(result, "\t"))
 
 func _get_app_secret_response(result):
 	var secret = result.data.EnjinApps[0].secret
 	if secret != null:
-		_schema.retrieve_app_access_token_query.set_bearer(_bearer)
-		_schema.retrieve_app_access_token_query.run({
+		schema.retrieve_app_access_token_query.set_bearer(bearer)
+		schema.retrieve_app_access_token_query.run({
 			"appId": APP_ID,
 			"appSecret": secret,
 		})
 		
-		_schema.create_player_mutation.set_bearer(_bearer)
-		_schema.create_player_mutation.run({ "playerId": "Szymon" })
+		schema.create_player_mutation.set_bearer(bearer)
+		schema.create_player_mutation.run({ "playerId": "Szymon" })
 
 func _retrieve_app_access_token_response(result):
-	#var secret = result.data.EnjinApps[0].secret
 	print(JSON.print(result, "\t"))
 
 func _create_player_response(result):
-	#var secret = result.data.EnjinApps[0].secret
 	print(JSON.print(result, "\t"))
