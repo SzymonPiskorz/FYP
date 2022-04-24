@@ -13,6 +13,7 @@ var queued_queries = []
 var SchemaScene = preload("res://addons/EnjinAPI/schema.tscn")
 
 var eth_address : String = ""
+var token_name: String = ""
 
 func connect_to_enjin() -> void:
 	if not root_ready:
@@ -35,17 +36,21 @@ func get_user(id : int):
 		"id": id
 	})
 
+func view_token():
+	_execute("view_token",{"name":"Mini Slav Coin",})
+
 func mint():
-	var token_id : String = "1000000000003af3"
 	_execute("mint", {
-		"identityId": "23916", "appId": "6132", "type": "MINT", "token_id": token_id, "amount": 1,
-		"address": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+		"identityId": "23916", "appId": "6132",
+		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+		"value": "1",
 	})
 
 func send():
-	var token_id : String = "1000000000003af3"
 	_execute("send", {
-		"identityId": "23916", "appId": "6132", "type": "SEND",
+		"identityId": "23916", "appId": "6132",
+		"tokenId": "1000000000003af3", "recipientAddress": "0xc1511fc654Fe62F4e9FEDF07270C18085F9a182F",
+		"value": "1",
 	})
 
 func create_identity(user_id : int, eth_address : String):
@@ -69,8 +74,8 @@ func _setup():
 	schema.create_identity.connect("graphql_response", self, "create_identity_response")
 	
 	
-	schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
-	schema.retrieve_app_access_token_query.connect("graphql_response", self, "_retrieve_app_access_token_response")
+	#schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
+	#schema.retrieve_app_access_token_query.connect("graphql_response", self, "_retrieve_app_access_token_response")
 	
 	initialised = true
 	

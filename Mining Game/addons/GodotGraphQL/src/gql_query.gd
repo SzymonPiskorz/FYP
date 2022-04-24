@@ -23,7 +23,7 @@ func _serialize_args()->String:
 	var query = " ("
 	var sep = ""
 	for variable in args_list.keys():
-		query +=sep+args_list[variable]+": $"+variable
+		query +=sep+variable+": "+(args_list[variable] as String)
 		sep = ", "
 	return query + ")"
 
