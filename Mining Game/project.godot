@@ -44,6 +44,7 @@ Data="*res://scripts/data.gd"
 GraphQL="*res://addons/GodotGraphQL/src/gql_client.gd"
 EnjinApi="*res://addons/EnjinAPI/enjin_api.gd"
 Secret="*res://addons/EnjinAPI/secret.gd"
+LevelData="*res://scripts/levels/level_data.gd"
 
 [global]
 
