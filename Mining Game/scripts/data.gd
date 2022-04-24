@@ -1,6 +1,6 @@
 extends Node
 
-var overallTokens : int = 103 #tokens to test all upgrades
+var overallTokens : int #= 103 #tokens to test all upgrades
 var current_tokens : int = 0
 var player_health : int = 0
 var player_max_speed : int = 100
