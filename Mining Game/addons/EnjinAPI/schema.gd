@@ -18,6 +18,7 @@ onready var get_user = GraphQL.query("GetUser", { "id": "Int!"},
 	}).set_props([
 		"name",
 		GQLQuery.new("identities").set_props([
+			"id",
 			GQLQuery.new("app").set_props([
 				"id",
 				"name",
@@ -57,9 +58,9 @@ onready var create_identity = GraphQL.mutation("CreateIdentity", {
 		"appId": "Int!",
 		"ethAddress": "String!",
 	}, GQLQuery.new("CreateEnjinIdentity").set_args({ 
-		"userId": "userId",
-		"appId": "appId",
-		"ethAddress": "ethAddress",
+		"userId": "$userId",
+		"appId": "$appId",
+		"ethAddress": "$ethAddress",
 	}).set_props([
 		"id",
 		"createdAt",

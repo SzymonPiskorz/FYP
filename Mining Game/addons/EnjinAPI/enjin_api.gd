@@ -7,6 +7,7 @@ var initialised = false
 
 var bearer : String = ""
 var user_id = -1
+var user_identity
 
 var schema = null
 var queued_queries = []
@@ -41,15 +42,15 @@ func view_token():
 
 func mint():
 	_execute("mint", {
-		"identityId": "23916", "appId": "6132",
-		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+		"identityId": user_identity, "appId": APP_ID,
+		"tokenId": "1000000000003af3", "recipientAddress": eth_address,
 		"value": "1",
 	})
 
 func send():
 	_execute("send", {
-		"identityId": "23916", "appId": "6132",
-		"tokenId": "1000000000003af3", "recipientAddress": "0xc1511fc654Fe62F4e9FEDF07270C18085F9a182F",
+		"identityId": user_identity, "appId": APP_ID,
+		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
 		"value": "1",
 	})
 
@@ -114,6 +115,9 @@ func get_user_response(result):
 	
 	if auth.size() > 0:
 		set_ethAddress(auth[0].wallet.ethAddress)
+		for identity in auth:
+			if identity.app.id == APP_ID:
+				user_identity = identity.id
 
 func create_identity_response(result):
 	print(JSON.print(result, "\t"))
