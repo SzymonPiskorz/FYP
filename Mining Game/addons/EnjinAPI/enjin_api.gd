@@ -8,6 +8,7 @@ var initialised = false
 var bearer : String = ""
 var user_id = -1
 var user_identity
+var logged_in : bool = false
 
 var schema = null
 var queued_queries = []
@@ -40,18 +41,18 @@ func get_user(id : int):
 func view_token():
 	_execute("view_token",{"name":"Mini Slav Coin",})
 
-func mint():
+func mint(amount : int):
 	_execute("mint", {
 		"identityId": user_identity, "appId": APP_ID,
 		"tokenId": "1000000000003af3", "recipientAddress": eth_address,
-		"value": "1",
+		"value": amount,
 	})
 
-func send():
+func send(amount : int):
 	_execute("send", {
 		"identityId": user_identity, "appId": APP_ID,
 		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
-		"value": "1",
+		"value": amount,
 	})
 
 func create_identity(user_id : int, eth_address : String):
@@ -107,6 +108,7 @@ func _login_response(result):
 		user_id = auth.id
 		bearer = auth.accessTokens[0].accessToken
 		schema.set_bearer(bearer)
+		get_user(EnjinApi.user_id)
 
 func get_user_response(result):
 	print(JSON.print(result, "\t"))
@@ -118,6 +120,7 @@ func get_user_response(result):
 		for identity in auth:
 			if identity.app.id == APP_ID:
 				user_identity = identity.id
+				logged_in = true
 
 func create_identity_response(result):
 	print(JSON.print(result, "\t"))
