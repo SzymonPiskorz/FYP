@@ -1,0 +1,193 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/UI_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/weaponsAndUtilities/smallHpBottle.png" type="Texture" id=2]
+[ext_resource path="res://assets/weaponsAndUtilities/HpBottle.png" type="Texture" id=3]
+[ext_resource path="res://scripts/shop.gd" type="Script" id=4]
+
+[node name="shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1037.0
+margin_bottom = 608.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -118.0
+margin_top = 1.0
+margin_right = -78.0
+margin_bottom = 14.0
+rect_scale = Vector2( 5, 5 )
+text = "Shop"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Control" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -102.0
+margin_right = 200.0
+margin_bottom = -102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Panel/Item1"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "Small HP
+Bottle"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Item1"]
+margin_left = 1.0
+margin_top = 64.0
+margin_right = 257.0
+margin_bottom = 320.0
+rect_scale = Vector2( 0.25, 0.25 )
+theme = ExtResource( 1 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Panel/Item1"]
+margin_left = -1.0
+margin_top = 124.0
+margin_right = 43.0
+margin_bottom = 138.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "Price: 4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1Button" type="Button" parent="Panel/Item1"]
+margin_left = 1.0
+margin_top = 160.0
+margin_right = 39.0
+margin_bottom = 180.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "BUY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2" type="Control" parent="Panel"]
+margin_left = 700.0
+margin_top = 200.0
+margin_right = 700.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Panel/Item2"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "HP
+Bottle"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Item2"]
+margin_left = 1.0
+margin_top = 64.0
+margin_right = 257.0
+margin_bottom = 320.0
+rect_scale = Vector2( 0.25, 0.25 )
+theme = ExtResource( 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="Panel/Item2"]
+margin_left = -1.0
+margin_top = 124.0
+margin_right = 43.0
+margin_bottom = 138.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "Price: 8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2Button" type="Button" parent="Panel/Item2"]
+margin_left = 1.0
+margin_top = 160.0
+margin_right = 39.0
+margin_bottom = 180.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "BUY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back Button" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -48.0
+margin_right = -30.0
+margin_bottom = -35.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TokenAmount" type="Label" parent="Panel"]
+margin_left = 722.0
+margin_top = 3.0
+margin_right = 864.0
+margin_bottom = 16.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+text = "Overall Tokens:  0"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Panel/Item1/Item1Button" to="." method="_on_Item1Button_pressed"]
+[connection signal="pressed" from="Panel/Item2/Item2Button" to="." method="_on_Item2Button_pressed"]
+[connection signal="pressed" from="Panel/Back Button" to="." method="_on_Back_Button_pressed"]
