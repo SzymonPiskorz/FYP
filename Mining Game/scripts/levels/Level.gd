@@ -30,8 +30,9 @@ func _on_LevelGenerator_level_generated(level_tiles):
 			pos.y = y
 			if level_tiles[x][y] == 44:
 				if level_tiles[x][y-1] == -1:
-					if !on_ground_dict.has(pos):
-						on_ground_dict[pos] = {
+					var pos2 = Vector2(x, y-1)
+					if !on_ground_dict.has(pos2):
+						on_ground_dict[pos2] = {
 							free = true,
 							}
 
