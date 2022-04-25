@@ -28,6 +28,14 @@ func move_character(delta):
 		
 		velocity.x += direction * max_speed * delta
 		
+		
+		if velocity.x > 0:
+			get_node("Sprite").flip_h = false
+		elif velocity.x < 0:
+			get_node("Sprite").flip_h = true
+		else:
+			get_node("Sprite").flip_h = false
+		
 		velocity = move_and_slide(velocity, Vector2.UP)
 		
 		if is_on_wall():
@@ -47,7 +55,10 @@ func _damageE(t_damage):
 func turn_around():
 	if is_on_floor():
 		direction *= -1
-		scale.x = -scale.x
+		#scale.x = -scale.x
+		get_node("Sprite").flip_h = !get_node("Sprite").flip_h
+		get_node("PlayerDetector").scale.x = -1*get_node("PlayerDetector").scale.x
+		get_node("AttackDetector").scale.x = -1*get_node("AttackDetector").scale.x
 
 func hit():
 	$AttackDetector.monitoring = true
@@ -62,7 +73,8 @@ func start_walking():
 
 
 func _on_PlayerDetector_body_entered(body):
-	hit()
+	if body.is_in_group("player"):
+		hit()
 
 
 func _on_AttackDetector_body_entered(body):

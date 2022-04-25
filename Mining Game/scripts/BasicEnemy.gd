@@ -27,6 +27,13 @@ func _physics_process(delta):
 	if abs(velocity.x) > max_speed:
 		velocity.x = max_speed * sign(velocity.x)
 	
+	if velocity.x > 0:
+		get_node("Sprite").flip_h = false
+	elif velocity.x < 0:
+		get_node("Sprite").flip_h = true
+	else:
+		get_node("Sprite").flip_h = false
+		
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	time += delta

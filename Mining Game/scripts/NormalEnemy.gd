@@ -27,6 +27,13 @@ func _physics_process(delta):
 	if is_on_wall() and is_on_floor():
 		_jump()
 	
+	if velocity.x < 0:
+		get_node("Sprite").flip_h = false
+	elif velocity.x > 0:
+		get_node("Sprite").flip_h = true
+	else:
+		get_node("Sprite").flip_h = false
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	time += delta
@@ -41,7 +48,9 @@ func _jump():
 func turn_around():
 	if is_on_floor():
 		direction *= -1
-		scale.x = -scale.x
+		#scale.x = -scale.x
+		get_node("Sprite").flip_h = !get_node("Sprite").flip_h
+		get_node("AttackShape").scale.x = -1*get_node("AttackShape").scale.x
 
 func _damageE(t_damage):
 	normalE_health -= t_damage

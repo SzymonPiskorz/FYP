@@ -1,12 +1,12 @@
 extends Node
 
 func _ready():
-	pass # Replace with function body.
+	EnjinApi.connect_to_enjin()
 
 
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/MainScene.tscn")
+	get_tree().change_scene("res://scenes/login.tscn")
 
 
 func _on_Settings_pressed():

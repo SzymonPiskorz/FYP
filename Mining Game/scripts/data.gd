@@ -1,6 +1,6 @@
 extends Node
 
-var overallTokens : int = 103 #tokens to test all upgrades
+var overallTokens : int #= 103 #tokens to test all upgrades
 var current_tokens : int = 0
 var player_health : int = 0
 var player_max_speed : int = 100
@@ -19,11 +19,16 @@ var tokens_per_d = 2
 var upgrades = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 func add_to_overall_tokens():
-	overallTokens += current_tokens
+	if current_tokens != 0:
+		EnjinApi.mint(current_tokens)
 	current_tokens = 0
+	EnjinApi.get_token_amount()
 
 func buy_upgrade(price):
 	overallTokens -= price
+	if price != 0:
+		EnjinApi.send(price)
+	EnjinApi.get_token_amount()
 
 func reset_difficulty():
 	difficulty = -1

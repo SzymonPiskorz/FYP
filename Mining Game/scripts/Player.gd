@@ -18,7 +18,7 @@ var currently_equiped = 2
 var current_tokens = 0
 var player_armour : int = 0
 
-var oVec = Vector2(0, -3)
+var oVec = Vector2(0, -2)
 var oRD = -45
 
 func _ready():
@@ -66,11 +66,17 @@ func _physics_process(delta):
 		velocity.y -= jump_speed
 	
 	if velocity.x > 0:
-		scale.x = 1
+		get_node("Sprite").flip_h = false
+		get_node("Sword").scale.x = 1
+		get_node("Pickaxe1").scale.x = 1
 	elif velocity.x < 0:
-		scale.x = -1
+		get_node("Sprite").flip_h = true
+		get_node("Sword").scale.x = -1
+		get_node("Pickaxe1").scale.x = -1
 	else:
-		scale.x = 1
+		get_node("Sprite").flip_h = false
+		get_node("Sword").scale.x = 1
+		get_node("Pickaxe1").scale.x = 1
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
@@ -89,7 +95,7 @@ func change_health(value : int) -> void:
 
 func _attack(inv):
 	var equipped = self.get_child(inv)
-	var vec = Vector2(12.5, 0.0)
+	var vec = Vector2(5, 0.0)
 	equipped.position = vec
 	equipped.rotation_degrees = 0.0
 	yield(get_tree().create_timer(0.25), "timeout")

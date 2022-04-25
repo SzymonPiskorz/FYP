@@ -7,6 +7,8 @@ var initialised = false
 
 var bearer : String = ""
 var user_id = -1
+var user_identity
+var logged_in : bool = false
 
 var schema = null
 var queued_queries = []
@@ -36,21 +38,27 @@ func get_user(id : int):
 		"id": id
 	})
 
+func get_token_amount():
+	_execute("get_token_amount", {
+		"tokenId": "1000000000003af3", 
+		"ethAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+	})
+
 func view_token():
 	_execute("view_token",{"name":"Mini Slav Coin",})
 
-func mint():
+func mint(amount : int):
 	_execute("mint", {
-		"identityId": "23916", "appId": "6132",
-		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
-		"value": "1",
+		"identityId": user_identity, "appId": APP_ID,
+		"tokenId": "1000000000003af3", "recipientAddress": eth_address,
+		"value": amount,
 	})
 
-func send():
+func send(amount : int):
 	_execute("send", {
-		"identityId": "23916", "appId": "6132",
-		"tokenId": "1000000000003af3", "recipientAddress": "0xc1511fc654Fe62F4e9FEDF07270C18085F9a182F",
-		"value": "1",
+		"identityId": user_identity, "appId": APP_ID,
+		"tokenId": "1000000000003af3", "recipientAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+		"value": amount,
 	})
 
 func create_identity(user_id : int, eth_address : String):
@@ -72,6 +80,7 @@ func _setup():
 	schema.login_query.connect("graphql_response", self, "_login_response")
 	schema.get_user.connect("graphql_response", self, "get_user_response")
 	schema.create_identity.connect("graphql_response", self, "create_identity_response")
+	schema.get_token_amount.connect("graphql_response", self, "get_token_amount_response")
 	
 	
 	#schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
@@ -106,6 +115,7 @@ func _login_response(result):
 		user_id = auth.id
 		bearer = auth.accessTokens[0].accessToken
 		schema.set_bearer(bearer)
+		get_user(EnjinApi.user_id)
 
 func get_user_response(result):
 	print(JSON.print(result, "\t"))
@@ -114,6 +124,21 @@ func get_user_response(result):
 	
 	if auth.size() > 0:
 		set_ethAddress(auth[0].wallet.ethAddress)
+		for identity in auth:
+			if identity.app.id == APP_ID:
+				user_identity = identity.id
+				get_token_amount()
+				logged_in = true
+
+func get_token_amount_response(result):
+	print(JSON.print(result, "\t"))
+	
+	var auth = result.data.EnjinBalances
+	
+	if auth.size() > 0:
+		for balance in auth:
+			if balance.token.id == "1000000000003af3":
+				Data.overallTokens = balance.value
 
 func create_identity_response(result):
 	print(JSON.print(result, "\t"))
