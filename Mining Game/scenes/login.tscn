@@ -27,7 +27,6 @@ rect_scale = Vector2( 2, 2 )
 text = "Login or Create new Identity"
 align = 1
 valign = 1
-percent_visible = -0.0416667
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,6 +49,7 @@ margin_top = 200.0
 margin_right = 788.0
 margin_bottom = 223.0
 rect_scale = Vector2( 1, 2 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,6 +69,11 @@ margin_top = 300.0
 margin_right = 788.0
 margin_bottom = 323.0
 rect_scale = Vector2( 1, 2 )
+align = 1
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="walletLabel" type="Label" parent="background"]
 margin_top = 375.0
@@ -85,6 +90,7 @@ margin_top = 400.0
 margin_right = 788.0
 margin_bottom = 423.0
 rect_scale = Vector2( 1, 2 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

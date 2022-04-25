@@ -95,3 +95,21 @@ margin_left = 130.0
 margin_top = 10.0
 margin_right = 170.0
 margin_bottom = 50.0
+
+[node name="ItemSlot3" parent="Footer" instance=ExtResource( 1 )]
+margin_left = 190.0
+margin_top = 10.0
+margin_right = 230.0
+margin_bottom = 50.0
+
+[node name="ItemSlot4" parent="Footer" instance=ExtResource( 1 )]
+margin_left = 250.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 50.0
+
+[node name="ItemSlot5" parent="Footer" instance=ExtResource( 1 )]
+margin_left = 310.0
+margin_top = 10.0
+margin_right = 350.0
+margin_bottom = 50.0

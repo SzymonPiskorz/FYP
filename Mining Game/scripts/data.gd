@@ -9,6 +9,8 @@ var player_jump_speed : int = 300
 var sword_dmg : int = 2
 var pickaxe_dmg : int = 1
 var player_armour : int = 0
+var small_hp_bottle_amount : int = 0
+var hp_bottle_amount : int = 0
 
 var difficulty = -1
 var b_enemy_per_d = 3
@@ -37,3 +39,12 @@ func reset_difficulty():
 func up_difficulty():
 	difficulty += 1
 	print(difficulty)
+
+func buy_item(price, item_num):
+	overallTokens -= price
+	if price != 0:
+		EnjinApi.send(price)
+	if item_num == 1:
+		small_hp_bottle_amount += 1
+	elif item_num == 2:
+		hp_bottle_amount += 1
