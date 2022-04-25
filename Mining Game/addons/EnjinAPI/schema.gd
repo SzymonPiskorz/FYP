@@ -33,6 +33,22 @@ onready var get_user = GraphQL.query("GetUser", { "id": "Int!"},
 			]),
 	]))
 
+onready var get_token_amount = GraphQL.query("GetBalance", {
+	"tokenId" : "String!",
+	"ethAddress" : "String!",},
+	GQLQuery.new("EnjinBalances").set_args({
+		"tokenId": "$tokenId",
+		"ethAddress": "$ethAddress",
+		"value_gte" : "1"}).set_props([
+			GQLQuery.new("token").set_props([
+				"id",
+				"name",
+			]),
+			"index",
+			"value"
+		])
+	)
+
 #onready var get_app_secret_query = GraphQL.query("GetAppSecret", {
 #		"id": "Int!",
 #	}, GQLQuery.new("EnjinApps").set_args({ 
@@ -119,6 +135,7 @@ func set_bearer(bearer : String):
 	create_identity.set_bearer(bearer)
 	mint.set_bearer(bearer)
 	send.set_bearer(bearer)
+	get_token_amount.set_bearer(bearer)
 
 func remove_bearer():
 	login_query.remove_bearer()
@@ -128,6 +145,7 @@ func remove_bearer():
 	create_identity.remove_bearer()
 	mint.remove_bearer()
 	send.remove_bearer()
+	get_token_amount.remove_bearer()
 
 func _ready():
 	add_child(login_query)
@@ -137,3 +155,4 @@ func _ready():
 	add_child(create_identity)
 	add_child(mint)
 	add_child(send)
+	add_child(get_token_amount)

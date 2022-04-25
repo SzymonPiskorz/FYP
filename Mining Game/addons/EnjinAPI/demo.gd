@@ -16,7 +16,7 @@ func _process(_delta):
 		EnjinApi.get_user(EnjinApi.user_id)
 	
 	if Input.is_action_just_pressed("ui_right"):
-		EnjinApi.send()
+		EnjinApi.get_token_amount()
 
 
 func get_new_identity():

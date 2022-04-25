@@ -38,6 +38,12 @@ func get_user(id : int):
 		"id": id
 	})
 
+func get_token_amount():
+	_execute("get_token_amount", {
+		"tokenId": "1000000000003af3", 
+		"ethAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+	})
+
 func view_token():
 	_execute("view_token",{"name":"Mini Slav Coin",})
 
@@ -74,6 +80,7 @@ func _setup():
 	schema.login_query.connect("graphql_response", self, "_login_response")
 	schema.get_user.connect("graphql_response", self, "get_user_response")
 	schema.create_identity.connect("graphql_response", self, "create_identity_response")
+	schema.get_token_amount.connect("graphql_response", self, "get_token_amount_response")
 	
 	
 	#schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
@@ -120,7 +127,18 @@ func get_user_response(result):
 		for identity in auth:
 			if identity.app.id == APP_ID:
 				user_identity = identity.id
+				get_token_amount()
 				logged_in = true
+
+func get_token_amount_response(result):
+	print(JSON.print(result, "\t"))
+	
+	var auth = result.data.EnjinBalances
+	
+	if auth.size() > 0:
+		for balance in auth:
+			if balance.token.id == "1000000000003af3":
+				Data.overallTokens = balance.value
 
 func create_identity_response(result):
 	print(JSON.print(result, "\t"))
