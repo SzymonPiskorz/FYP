@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/tilemap/TileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/BasicEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/NormalEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Token.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/audio/Background.mp3" type="AudioStream" id=8]
 
 [node name="Level3" type="Node2D"]
 
@@ -113,3 +114,7 @@ position = Vector2( -656, 69 )
 
 [node name="StaticBody2D6" parent="Tokens" instance=ExtResource( 7 )]
 position = Vector2( -2648, -410 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true

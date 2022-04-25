@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/characters/Hero1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Sword.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Pickaxe1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/ui/Hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/settingsPanel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -30,6 +31,9 @@ rotation = -0.785398
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
 
 [connection signal="health_changed" from="." to="CanvasLayer/HUD" method="_on_Player_health_changed"]
 [connection signal="tokens_changed" from="." to="CanvasLayer/HUD" method="_on_Player_tokens_changed"]

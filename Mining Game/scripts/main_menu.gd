@@ -10,7 +10,7 @@ func _on_Play_pressed():
 
 
 func _on_Settings_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/settingScreen.tscn")
 
 
 func _on_Help_pressed():

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/audio/Background.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/UI_Theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/settingsPanel.gd" type="Script" id=3]
+
+[node name="SettingsPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1046.0
+margin_bottom = 614.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Title" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -524.0
+margin_top = 1.0
+margin_right = -268.0
+margin_bottom = 27.0
+rect_scale = Vector2( 4, 4 )
+text = "Settings"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Volume" type="Label" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 1.0
+margin_top = -141.0
+margin_right = 42.0
+margin_bottom = -128.0
+rect_scale = Vector2( 3, 3 )
+text = "Volume"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/Volume"]
+margin_left = 47.6667
+margin_top = 0.666664
+margin_right = 336.667
+margin_bottom = 13.6667
+value = 50.0
+
+[node name="HSlider" type="HSlider" parent="Panel/Volume/ProgressBar"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 289.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -83.0
+margin_top = -57.0
+margin_right = -43.0
+margin_bottom = -44.0
+rect_scale = Vector2( 3, 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="Panel/Volume/ProgressBar/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
