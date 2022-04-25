@@ -46,10 +46,20 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Left"):
 		input -= 1.0
 	
-	if Input.is_action_pressed("1"):
+	if Input.is_action_just_pressed("1"):
 		_equip(2)
-	if Input.is_action_pressed("2"):
+	if Input.is_action_just_pressed("2"):
 		_equip(3)
+	if Input.is_action_just_pressed("3"):
+		_useMedallion()
+	if Input.is_action_just_pressed("4"):
+		if Data.small_hp_bottle_amount > 0:
+			change_health(5)
+			Data.small_hp_bottle_amount -= 1
+	if Input.is_action_just_pressed("5"):
+		if Data.hp_bottle_amount > 0:
+			change_health(15)
+			Data.hp_bottle_amount -= 1
 	
 	if Input.is_action_pressed("attack"):
 		_attack(currently_equiped)
@@ -90,6 +100,7 @@ func change_health(value : int) -> void:
 	if player_health <= 0:
 		player_died = true
 		queue_free()
+		get_tree().change_scene("res://scenes/MainMenu.tscn")
 	
 	emit_signal("health_changed", player_health)
 
@@ -118,3 +129,11 @@ func _equip(inv):
 func _addTokens(amount):
 	current_tokens += amount
 	emit_signal("tokens_changed", current_tokens)
+
+func _useMedallion():
+	Data.current_tokens = get_parent().find_node("Player").current_tokens
+	Data.add_to_overall_tokens()
+	Data.player_health = get_parent().find_node("Player").player_health
+	Data.reset_difficulty()
+	
+	SceneChanger.change_scene("res://scenes/MainScene.tscn")
