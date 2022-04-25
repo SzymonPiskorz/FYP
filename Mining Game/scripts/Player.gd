@@ -61,6 +61,9 @@ func _physics_process(delta):
 			change_health(15)
 			Data.hp_bottle_amount -= 1
 	
+	if Input.is_action_just_pressed("ui_cancel"):
+		$CanvasLayer/SettingsPanel.visible = true
+	
 	if Input.is_action_pressed("attack"):
 		_attack(currently_equiped)
 	
