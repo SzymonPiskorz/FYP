@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/UI_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/helpScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/Background.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/infoImages/gameInfo.png" type="Texture" id=4]
+[ext_resource path="res://assets/infoImages/loginInfo.png" type="Texture" id=5]
+[ext_resource path="res://assets/infoImages/hudinfo.png" type="Texture" id=6]
+
+[node name="HelpScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1040.0
+margin_bottom = 621.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameInfoButton" type="Button" parent="Panel"]
+margin_right = 58.0
+margin_bottom = 13.0
+rect_scale = Vector2( 4, 4 )
+text = "Game Info"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginScreenButton" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -123.0
+margin_top = 1.0
+margin_right = -61.0
+margin_bottom = 14.0
+rect_scale = Vector2( 4, 4 )
+text = "Login Info"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HudInfoButton" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -244.0
+margin_top = -3.0
+margin_right = -186.0
+margin_bottom = 10.0
+rect_scale = Vector2( 4, 4 )
+text = "Hud Info"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameInfo" type="TextureRect" parent="Panel"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 1021.0
+margin_bottom = 576.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginInfo" type="TextureRect" parent="Panel"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 1025.0
+margin_bottom = 555.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HudInfo" type="TextureRect" parent="Panel"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 1027.0
+margin_bottom = 555.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -83.0
+margin_top = -57.0
+margin_right = -43.0
+margin_bottom = -44.0
+rect_scale = Vector2( 3, 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="pressed" from="Panel/GameInfoButton" to="." method="_on_GameInfoButton_pressed"]
+[connection signal="pressed" from="Panel/LoginScreenButton" to="." method="_on_LoginScreenButton_pressed"]
+[connection signal="pressed" from="Panel/HudInfoButton" to="." method="_on_HudInfoButton_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]

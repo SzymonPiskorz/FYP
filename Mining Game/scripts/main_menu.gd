@@ -14,7 +14,7 @@ func _on_Settings_pressed():
 
 
 func _on_Help_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/helpScreen.tscn")
 
 
 func _on_Exit_pressed():
