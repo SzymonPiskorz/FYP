@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Tree.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/armourIcon.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/Red.png" type="Texture" id=3]
 [ext_resource path="res://scripts/upgradeNode.gd" type="Script" id=4]
+[ext_resource path="res://assets/icons/shield-swordIcon.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/runningIcon.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/jumpIcon.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/crossed-swords.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/running-jumpIcon.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/pickaxeIcon.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/utilityIcon.png" type="Texture" id=11]
 
 [node name="Tree" type="TextureRect"]
 self_modulate = Color( 0.466667, 0.423529, 0.423529, 1 )
@@ -21,6 +29,7 @@ child_nodes = [ 1, 2, 3 ]
 upgrade_info = "No current use"
 
 [node name="TextureButton" type="TextureButton" parent="Begining"]
+modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
 margin_left = 468.0
 margin_top = 37.0
 margin_right = 532.0
@@ -66,7 +75,7 @@ margin_top = 150.0
 margin_right = 214.0
 margin_bottom = 214.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -108,7 +117,7 @@ margin_top = 225.0
 margin_right = 124.0
 margin_bottom = 289.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -150,7 +159,7 @@ margin_top = 325.0
 margin_right = 124.0
 margin_bottom = 389.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,7 +201,7 @@ margin_top = 425.0
 margin_right = 124.0
 margin_bottom = 489.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -233,7 +242,7 @@ margin_top = 525.0
 margin_right = 124.0
 margin_bottom = 589.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -275,7 +284,7 @@ margin_top = 225.0
 margin_right = 314.0
 margin_bottom = 289.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -317,7 +326,7 @@ margin_top = 325.0
 margin_right = 314.0
 margin_bottom = 389.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -359,7 +368,7 @@ margin_top = 425.0
 margin_right = 314.0
 margin_bottom = 489.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -400,7 +409,7 @@ margin_top = 525.0
 margin_right = 314.0
 margin_bottom = 589.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -442,7 +451,7 @@ margin_top = 150.0
 margin_right = 532.0
 margin_bottom = 214.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -484,7 +493,7 @@ margin_top = 225.0
 margin_right = 439.0
 margin_bottom = 289.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -526,7 +535,7 @@ margin_top = 325.0
 margin_right = 439.0
 margin_bottom = 389.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -568,7 +577,7 @@ margin_top = 425.0
 margin_right = 439.0
 margin_bottom = 489.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -609,7 +618,7 @@ margin_top = 525.0
 margin_right = 439.0
 margin_bottom = 589.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -651,7 +660,7 @@ margin_top = 225.0
 margin_right = 629.0
 margin_bottom = 289.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -693,7 +702,7 @@ margin_top = 325.0
 margin_right = 629.0
 margin_bottom = 389.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -735,7 +744,7 @@ margin_top = 425.0
 margin_right = 629.0
 margin_bottom = 489.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -776,7 +785,7 @@ margin_top = 525.0
 margin_right = 629.0
 margin_bottom = 589.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -818,7 +827,7 @@ margin_top = 150.0
 margin_right = 850.0
 margin_bottom = 214.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 11 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -860,7 +869,7 @@ margin_top = 225.0
 margin_right = 940.0
 margin_bottom = 289.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -902,7 +911,7 @@ margin_top = 325.0
 margin_right = 940.0
 margin_bottom = 389.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -944,7 +953,7 @@ margin_top = 425.0
 margin_right = 940.0
 margin_bottom = 489.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -985,7 +994,7 @@ margin_top = 525.0
 margin_right = 940.0
 margin_bottom = 589.0
 rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
