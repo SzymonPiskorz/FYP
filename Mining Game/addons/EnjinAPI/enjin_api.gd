@@ -14,6 +14,7 @@ var schema = null
 var queued_queries = []
 var SchemaScene = preload("res://addons/EnjinAPI/schema.tscn")
 
+var app_token : String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MTMyIiwianRpIjoiZDAwNzc3MGU5MGQ5OWY4OTBlNTk4Njc1NDZiOTIxMjNlOGY4NTMzMWFiZGViYmVkMDI2NmQ3Y2E3MWI1MThkZDQ3NmUzNWIwYjAyYWQ2NzUiLCJpYXQiOjE2NTA5Njg2OTQuNTYxOTI5LCJuYmYiOjE2NTA5Njg2OTQuNTYxOTMxLCJleHAiOjE2NTEwNTUwOTQuNTUzNDUsInN1YiI6IiIsInNjb3BlcyI6WyJhcGkiXX0.OSp6Tn33uMt3LkelW1PHJNJt6vu8U7ApS1NEU7fK4N6La4MJNvyd_uwD_cSe4aTClPTDqL7kvZkz3y8qNwuFK82Pwj8ibAHRCnMLLlM8i3rjOX-SEWgdHkP_DZHN6iwVa-7TcQiC-EhgtLJhHd2j8fKOfjHIdHzNhjB9SzCkKGxtg6TJbUQ6mAoxSWkKDiRopDrZiX4xtz6FNuRRbvo_93g4gjCx7X16KlPo7azoguRVIIOIbff2vjxiazDaVISBIUeSYQQMH6vVFqP1UbutNY3mRsnlo-avmXQlckoJSXLixek-roJt54gvTYJSoQQQI1p42jpAi3XHmlOyGWrwRZAa-sxLgxNufW9UVbvZvMA6PABrsXyMJeDMdvdC83_T_IQc7pM8dyrTobl8koHE5q6oXZjTu36XfZFC2gMULd3S6c_DxAKC0Q-LTRG_5BBSoWhOrOQPrf2uTEaDcGDWfaXUJTAvu5eRYYLJyAwx_xpgc5qPNi3mA48jTsZTOfzF308EYaTfNPBbu6GuFLbXIpWULLYF0KaYZE9tCpozIEAKKPGS5vTVUt7NsBD_D0-rY-QeZ-7sAHBaGN2ikDPqkaSEg7kXAFEzJTpPR_4OHLop8QV38InseifaF5i3vS4yVf5TBqsFbgUtRPfJzoCWJ8E7kJj0F1v8BMN2XW3jBPM"
 var eth_address : String = ""
 var token_name: String = ""
 
@@ -41,7 +42,7 @@ func get_user(id : int):
 func get_token_amount():
 	_execute("get_token_amount", {
 		"tokenId": "1000000000003af3", 
-		"ethAddress": "0xefFa6E677804CE68A0a00C2bAad08360Eb7aa665",
+		"ethAddress": eth_address,
 	})
 
 func view_token():
@@ -49,7 +50,7 @@ func view_token():
 
 func mint(amount : int):
 	_execute("mint", {
-		"identityId": user_identity, "appId": APP_ID,
+		"identityId": 23916, "appId": 6132,
 		"tokenId": "1000000000003af3", "recipientAddress": eth_address,
 		"value": amount,
 	})
@@ -113,7 +114,7 @@ func _login_response(result):
 	
 	if auth != null:
 		user_id = auth.id
-		bearer = auth.accessTokens[0].accessToken
+		bearer = app_token#auth.accessTokens[0].accessToken
 		schema.set_bearer(bearer)
 		get_user(EnjinApi.user_id)
 
