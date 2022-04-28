@@ -14,7 +14,8 @@ var schema = null
 var queued_queries = []
 var SchemaScene = preload("res://addons/EnjinAPI/schema.tscn")
 
-var app_token : String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MTMyIiwianRpIjoiZDAwNzc3MGU5MGQ5OWY4OTBlNTk4Njc1NDZiOTIxMjNlOGY4NTMzMWFiZGViYmVkMDI2NmQ3Y2E3MWI1MThkZDQ3NmUzNWIwYjAyYWQ2NzUiLCJpYXQiOjE2NTA5Njg2OTQuNTYxOTI5LCJuYmYiOjE2NTA5Njg2OTQuNTYxOTMxLCJleHAiOjE2NTEwNTUwOTQuNTUzNDUsInN1YiI6IiIsInNjb3BlcyI6WyJhcGkiXX0.OSp6Tn33uMt3LkelW1PHJNJt6vu8U7ApS1NEU7fK4N6La4MJNvyd_uwD_cSe4aTClPTDqL7kvZkz3y8qNwuFK82Pwj8ibAHRCnMLLlM8i3rjOX-SEWgdHkP_DZHN6iwVa-7TcQiC-EhgtLJhHd2j8fKOfjHIdHzNhjB9SzCkKGxtg6TJbUQ6mAoxSWkKDiRopDrZiX4xtz6FNuRRbvo_93g4gjCx7X16KlPo7azoguRVIIOIbff2vjxiazDaVISBIUeSYQQMH6vVFqP1UbutNY3mRsnlo-avmXQlckoJSXLixek-roJt54gvTYJSoQQQI1p42jpAi3XHmlOyGWrwRZAa-sxLgxNufW9UVbvZvMA6PABrsXyMJeDMdvdC83_T_IQc7pM8dyrTobl8koHE5q6oXZjTu36XfZFC2gMULd3S6c_DxAKC0Q-LTRG_5BBSoWhOrOQPrf2uTEaDcGDWfaXUJTAvu5eRYYLJyAwx_xpgc5qPNi3mA48jTsZTOfzF308EYaTfNPBbu6GuFLbXIpWULLYF0KaYZE9tCpozIEAKKPGS5vTVUt7NsBD_D0-rY-QeZ-7sAHBaGN2ikDPqkaSEg7kXAFEzJTpPR_4OHLop8QV38InseifaF5i3vS4yVf5TBqsFbgUtRPfJzoCWJ8E7kJj0F1v8BMN2XW3jBPM"
+var app_secret : String = "taUtMbdJXMAaeUSJrcENV7PHGH3LTHidzHsqpFSm"
+var app_token : String = ""
 var eth_address : String = ""
 var token_name: String = ""
 
@@ -33,6 +34,12 @@ func logout():
 	schema.remove_bearer()
 	bearer = ""
 	user_id = -1
+
+func get_app_access_token():
+	_execute("get_app_access_token", {
+		"id" : APP_ID,
+		"secret": app_secret,
+	})
 
 func get_user(id : int):
 	_execute("get_user",{
@@ -85,7 +92,7 @@ func _setup():
 	
 	
 	#schema.get_app_secret_query.connect("graphql_response", self, "_get_app_secret_response")
-	#schema.retrieve_app_access_token_query.connect("graphql_response", self, "_retrieve_app_access_token_response")
+	schema.get_app_access_token.connect("graphql_response", self, "_get_app_access_token_response")
 	
 	initialised = true
 	
@@ -114,9 +121,9 @@ func _login_response(result):
 	
 	if auth != null:
 		user_id = auth.id
-		bearer = app_token#auth.accessTokens[0].accessToken
-		schema.set_bearer(bearer)
-		get_user(EnjinApi.user_id)
+		get_app_access_token()
+		
+		
 
 func get_user_response(result):
 	print(JSON.print(result, "\t"))
@@ -156,8 +163,16 @@ func _get_app_secret_response(result):
 		schema.create_player_mutation.set_bearer(bearer)
 		schema.create_player_mutation.run({ "playerId": "Szymon" })
 
-func _retrieve_app_access_token_response(result):
+func _get_app_access_token_response(result):
 	print(JSON.print(result, "\t"))
+	
+	var auth = result.data.AuthApp
+	
+	if auth != null:
+		app_token = auth.accessToken
+		bearer = app_token
+		schema.set_bearer(bearer)
+		get_user(EnjinApi.user_id)
 
 func _create_player_response(result):
 	print(JSON.print(result, "\t"))
