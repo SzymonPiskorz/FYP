@@ -58,16 +58,16 @@ onready var get_token_amount = GraphQL.query("GetBalance", {
 #	]))
 #
 
-#onready var retrieve_app_access_token_query = GraphQL.query("RetrieveAppAccessToken", {
-#		"appId": "Int!",
-#		"appSecret": "String!",
-#	}, GQLQuery.new("AuthApp").set_args({ 
-#		"appId": "id",
-#		"appSecret": "secret",
-#	}).set_props([
-#		"accessToken",
-#		"expiresIn",
-#	]))
+onready var get_app_access_token = GraphQL.query("RetrieveAppAccessToken", {
+		"id": "Int!",
+		"secret": "String!",
+	}, GQLQuery.new("AuthApp").set_args({ 
+		"id": "$id",
+		"secret": "$secret",
+	}).set_props([
+		"accessToken",
+		"expiresIn",
+	]))
 
 onready var create_identity = GraphQL.mutation("CreateIdentity", {
 		"userId": "Int!",
@@ -130,7 +130,7 @@ onready var send = GraphQL.mutation("SendToken", {
 func set_bearer(bearer : String):
 	login_query.set_bearer(bearer)
 	#get_app_secret_query.set_bearer(bearer)
-	#retrieve_app_access_token_query.set_bearer(bearer)
+	get_app_access_token.set_bearer(bearer)
 	get_user.set_bearer(bearer)
 	create_identity.set_bearer(bearer)
 	mint.set_bearer(bearer)
@@ -140,7 +140,7 @@ func set_bearer(bearer : String):
 func remove_bearer():
 	login_query.remove_bearer()
 	#get_app_secret_query.remove_bearer()
-	#retrieve_app_access_token_query.remove_bearer()
+	get_app_access_token.remove_bearer()
 	get_user.remove_bearer()
 	create_identity.remove_bearer()
 	mint.remove_bearer()
@@ -150,7 +150,7 @@ func remove_bearer():
 func _ready():
 	add_child(login_query)
 	#add_child(get_app_secret_query)
-	#add_child(retrieve_app_access_token_query)
+	add_child(get_app_access_token)
 	add_child(get_user)
 	add_child(create_identity)
 	add_child(mint)
